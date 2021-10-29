@@ -30,4 +30,7 @@ public class UserEntity {
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private List<RoleEntity> roles;
 
+    @OneToMany(mappedBy = "manager", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ManagerTicketsEntity> tickets;
+
 }

@@ -4,7 +4,7 @@ spring:
       ddl-auto: update
     properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
   datasource:
-    url: jdbc:postgresql://localhost:5432/booking_system
+    url: jdbc:postgresql://localhost:5432/booking_system_test
     username: postgres
     password: mycow
     driver-class-name: org.postgresql.Driver

@@ -4,6 +4,7 @@ import com.kpi.mishchenko.bookingproject.entity.RoleEntity;
 import com.kpi.mishchenko.bookingproject.entity.UserEntity;
 import com.kpi.mishchenko.bookingproject.repository.RoleRepository;
 import com.kpi.mishchenko.bookingproject.repository.UserRepository;
+import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +34,11 @@ public class UserService {
         user.setEmail("manager@gmail.com");
         user.setRoles(roles);
         userRepository.save(user);
+    }
+
+    public UserEntity get(long userId) throws NotFoundException {
+        return userRepository.findById(userId)
+                .orElseThrow(() -> new NotFoundException("Can not to get user by id: " + userId));
     }
 
 }

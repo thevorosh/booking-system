@@ -32,4 +32,7 @@ public class TicketEntity {
     @JoinColumn(name = "room_id", nullable = false)
     private RoomEntity room;
 
+    @OneToOne(mappedBy = "ticket")
+    private ManagerTicketsEntity manager;
+
 }

@@ -14,10 +14,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
@@ -32,7 +34,7 @@ public class TicketServiceTest {
     private TicketRepository ticketRepository;
 
     @Test
-    public void insert() {
+    public void insertSuccessful() {
         Ticket ticket = new Ticket();
         ticket.setName("Test ticket");
         ticket.setPrice(150.0);
@@ -43,12 +45,12 @@ public class TicketServiceTest {
         ticket.setStatus(TicketStatus.NOT_CONFIRMED.toString());
 
         TicketEntity ticketEntity = TicketEntityFactory.create(ticket);
+
         boolean isTicketCreated = ticketService.insert(ticketEntity);
 
         assertTrue(isTicketCreated);
 
-        Mockito.verify(ticketRepository, Mockito.times(1))
-                .save(ticketEntity);
+        Mockito.verify(ticketRepository, Mockito.times(1)).save(ticketEntity);
     }
 
 }

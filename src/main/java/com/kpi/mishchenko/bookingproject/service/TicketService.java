@@ -1,6 +1,7 @@
 package com.kpi.mishchenko.bookingproject.service;
 
 import com.kpi.mishchenko.bookingproject.entity.TicketEntity;
+import com.kpi.mishchenko.bookingproject.model.Ticket;
 import com.kpi.mishchenko.bookingproject.repository.LocationRepository;
 import com.kpi.mishchenko.bookingproject.repository.RoomRepository;
 import com.kpi.mishchenko.bookingproject.repository.TicketRepository;
@@ -11,9 +12,7 @@ public class TicketService {
 
     private final TicketRepository ticketRepository;
 
-    public TicketService(TicketRepository ticketRepository,
-                         RoomRepository roomRepository,
-                         LocationRepository locationRepository) {
+    public TicketService(TicketRepository ticketRepository) {
         this.ticketRepository = ticketRepository;
     }
 
