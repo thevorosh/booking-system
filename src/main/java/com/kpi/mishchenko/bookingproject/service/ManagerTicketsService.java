@@ -49,7 +49,7 @@ public class ManagerTicketsService {
         return new ResponseEntity<>(map, HttpStatus.OK);
     }
 
-    private ManagerTicketsEntity getManagerTicketsEntity(ManagerTicketDTO managerTicket) throws NotFoundException {
+    public ManagerTicketsEntity getManagerTicketsEntity(ManagerTicketDTO managerTicket) throws NotFoundException {
         ManagerTicketsEntity managerTickets = new ManagerTicketsEntity();
         managerTickets.setManager(userService.get(managerTicket.getManagerId()));
         managerTickets.setTicket(TicketEntityFactory.create(managerTicket));

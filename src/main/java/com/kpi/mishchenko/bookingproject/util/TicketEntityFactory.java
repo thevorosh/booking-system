@@ -8,9 +8,9 @@ import com.kpi.mishchenko.bookingproject.model.Room;
 import com.kpi.mishchenko.bookingproject.model.Ticket;
 import com.kpi.mishchenko.bookingproject.model.dto.ManagerTicketDTO;
 
-public class TicketEntityFactory {
+public final class TicketEntityFactory {
 
-    private TicketEntityFactory() {}
+    public TicketEntityFactory() {}
 
     public static TicketEntity create(ManagerTicketDTO managerTicketDTO) {
         TicketEntity ticket = new TicketEntity();
